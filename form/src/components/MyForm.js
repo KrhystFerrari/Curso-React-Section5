@@ -9,7 +9,9 @@ const MyForms = ({user}) => {
   const [name, setName] = useState(user ? user.name : '')
   const [email, setEmail] = useState(user ? user.email : '')
 
-  const [bio, setBio] = useState('')
+  const [bio, setBio] = useState(user ? user.bio : '')
+
+  const [role, setRole] = useState(user ? user.role : '')
 
   const handleName = (e) => {
     setName(e.target.value)
@@ -20,7 +22,7 @@ const MyForms = ({user}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log('Enviando o formulario')
-    console.log(name, email, bio)
+    console.log(name, email, bio, role)
 
     // 7 - Limpando formulários
     setName('')
@@ -52,6 +54,15 @@ const MyForms = ({user}) => {
              onChange={(e) => setBio(e.target.value)} 
              value={bio} 
             ></textarea>
+          </label>
+          {/* 9 - Select */}
+          <label>
+            <span>Função no sistema</span>
+            <select name="role" onChange={(e) => setRole(e.target.value)} value={role}>
+              <option value="user">Usuário</option>
+              <option value="editor">Editor</option>
+              <option value="admin">Administrador</option>
+            </select>
           </label>
           <input type="submit" value='Enviar' />
         </form>
