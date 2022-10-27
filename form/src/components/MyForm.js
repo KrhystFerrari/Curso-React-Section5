@@ -11,6 +11,7 @@ const MyForms = () => {
     setName(e.target.value)
   }
   console.log(name)
+  console.log(email)
 
   return (
     <div>
@@ -23,7 +24,7 @@ const MyForms = () => {
           {/* 2 - Label envolvendo o Input (sugerida na doc do React) */}
           <label>
             <span>e-mail: </span>
-            <input type="email" name='email' placeholder='e-mail: ' />
+            <input type="email" name='email' placeholder='e-mail:' onChange={(e) => setEmail(e.target.value) } />
           </label>
           <input type="submit" value='Enviar' />
         </form>
